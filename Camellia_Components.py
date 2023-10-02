@@ -76,7 +76,7 @@ def P_Func(L: bitarray)->bitarray:
     z = split2Words(L, 8)
     # The following line of code is added to make sure that the index is in line with the
     # specification document
-    z.insert(0,None)
+    z.insert(0,None) # Could be a problem here!
     t = z.copy()
 
     # Definition, see 4.6 in spec
@@ -90,7 +90,7 @@ def P_Func(L: bitarray)->bitarray:
     t[7] = z[3] ^ z[4] ^ z[5] ^ z[6] ^ z[8]
     t[8] = z[1] ^ z[4] ^ z[5] ^ z[6] ^ z[7]
     
-    t.pop(0)
+    t.pop(0) # Could be a problem here! What about z? It changes also!
     return concatWords(t)
 
 def FesitelRound(left: bitarray, right: bitarray, key: bitarray):
